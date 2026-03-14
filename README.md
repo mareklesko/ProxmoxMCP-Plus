@@ -62,7 +62,7 @@ The repository ships with a [Dev Container](https://containers.dev/) configurati
 **Requirements:** [Docker](https://www.docker.com/get-started) and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for VS Code (or open directly in [GitHub Codespaces](https://github.com/features/codespaces)).
 
 1. Open the repository in VS Code and click **"Reopen in Container"** when prompted (or run the **Dev Containers: Reopen in Container** command from the Command Palette).
-2. VS Code builds the image and installs all Python dependencies automatically (`uv pip install -e ".[dev]"`).
+2. VS Code builds the image and installs all Python dependencies automatically using `uv` (as configured in the dev container).
 3. Copy the example config and fill in your Proxmox credentials:
    ```bash
    cp proxmox-config/config.example.json proxmox-config/config.json
