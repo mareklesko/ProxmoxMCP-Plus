@@ -1,13 +1,15 @@
 FROM python:3.11-slim
 
+RUN pip install --upgrade pip hatchling --break-system-packages
+
 WORKDIR /app
 
-# Copy project files
+# Copy all required files including README.md which hatchling needs
 COPY pyproject.toml .
+COPY README.md .
 COPY src/ src/
 COPY proxmox-config/config.example.json proxmox-config/config.json
 
-# Install directly with pip — no uv needed
 RUN pip install -e "." --break-system-packages && \
     pip install mcp-streamablehttp-proxy --break-system-packages
 
