@@ -5,7 +5,7 @@
         "context": ".."
     },
     "workspaceFolder": "/workspaces/ProxmoxMCP-Plus",
-    "postCreateCommand": "uv venv && uv pip install -e '.[dev]'",
+    "postCreateCommand": "uv venv && uv pip install -e .",
     "remoteUser": "vscode",
     "forwardPorts": [8811],
     "portsAttributes": {
