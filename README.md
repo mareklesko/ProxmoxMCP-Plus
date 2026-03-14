@@ -55,6 +55,25 @@ This project is built upon the open-source project [ProxmoxMCP](https://github.c
 - ISO and template management
 
 
+## Dev Container (VS Code / GitHub Codespaces)
+
+The repository ships with a [Dev Container](https://containers.dev/) configuration so you can jump straight into a pre-configured development environment without installing anything locally.
+
+**Requirements:** [Docker](https://www.docker.com/get-started) and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for VS Code (or open directly in [GitHub Codespaces](https://github.com/features/codespaces)).
+
+1. Open the repository in VS Code and click **"Reopen in Container"** when prompted (or run the **Dev Containers: Reopen in Container** command from the Command Palette).
+2. VS Code builds the image and installs all Python dependencies automatically using `uv` (as configured in the dev container).
+3. Copy the example config and fill in your Proxmox credentials:
+   ```bash
+   cp proxmox-config/config.example.json proxmox-config/config.json
+   # Edit proxmox-config/config.json with your Proxmox host and API token
+   ```
+4. Port `8811` is forwarded automatically so the OpenAPI proxy is reachable at `http://localhost:8811`.
+
+The container runs as the non-root `vscode` user and comes with Python, Git, common build tools, and a set of VS Code extensions (Python, Pylance, Ruff, Black, GitLens, etc.) pre-installed.
+
+---
+
 ## Installation
 
 ### Prerequisites

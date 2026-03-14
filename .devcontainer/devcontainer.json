@@ -1,0 +1,39 @@
+{
+    "name": "ProxmoxMCP-Plus Dev",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "workspaceFolder": "/workspaces/ProxmoxMCP-Plus",
+    "postCreateCommand": "uv venv && uv pip install -e .",
+    "remoteUser": "vscode",
+    "forwardPorts": [8811],
+    "portsAttributes": {
+        "8811": {
+            "label": "OpenAPI Proxy",
+            "onAutoForward": "notify"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python",
+                "editor.formatOnSave": true,
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.black-formatter"
+                },
+                "ruff.enable": true
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "charliermarsh.ruff",
+                "eamodio.gitlens",
+                "mhutchie.git-graph",
+                "redhat.vscode-yaml",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+}
